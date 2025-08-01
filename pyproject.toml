@@ -25,6 +25,9 @@ exclude = [
     "dist",
     "*.egg-info",
 ]
+ignore = [
+    "E402",  # module level import not at top of file
+]
 
 [dependency-groups]
 dev = [
