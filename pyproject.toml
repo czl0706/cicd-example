@@ -1,0 +1,36 @@
+[project]
+name = "cicd-example"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.taskipy.tasks]
+format = "black ."
+lint = "flake8 . && echo 'No linting errors found!'"
+test = "pytest"
+check-all = "task format && task lint && task test"
+
+[tool.flake8]
+max-line-length = 88
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "venv",
+    "env",
+    ".env",
+    "build",
+    "dist",
+    "*.egg-info",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "flake8>=7.3.0",
+    "flake8-pyproject>=1.2.3",
+    "pytest>=8.4.1",
+    "taskipy>=1.14.1",
+]
